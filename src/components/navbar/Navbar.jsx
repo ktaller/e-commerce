@@ -1,14 +1,15 @@
 import React from "react";
 import "./Navbar.css";
+import {Link} from 'react-router-dom'
 
 function Navbar() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light py-3 shadow-sm">
+      <nav className="navbar navbar-expand-lg navbar-light bg-warning py-3 shadow-sm">
         <div className="container">
-          <a className="navbar-brand fw-bold fs-4" href="#">
+          <Link className="navbar-brand fw-bolder fs-4" to='/home'>
             stAr-SHOP
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -20,27 +21,18 @@ function Navbar() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Home
-                </a>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent ">
+            <ul className="navbar-nav mx-auto mb-2 mb-lg-0 fw-normal text-dark">
+              <li className="nav-item ms-2">
+                <Link to={"/  "}> Home </Link>
+       
               </li>
-              <li className="nav-item">
-                <a className="nav-link " href="#">
-                  Products
-                </a>
+              <li className="nav-item ms-2">
+              <Link to={"/products"}> Products </Link>
               </li>
-              <li className="nav-item">
-                <a className="nav-link " href="#">
-                  About
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link " href="#">
-                  Contact
-                </a>
+              
+              <li className="nav-item ms-2">
+               <Link to = {"/contact"}> Contact </Link>
               </li>
             </ul>
             <div className="buttons">
