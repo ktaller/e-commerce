@@ -5,9 +5,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Products from "./components/products/Products";
 import Registration from "./components/Registration";
 import LoginForm from "./components/LoginForm";
-import About from "./pages/About";
+// import About from "./pages/About";
 import Contact from "./pages/About";
 import Layout from "./components/Layout";
+import ProductDetail from "./components/ProductDetail";
 
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
           <Route path = "/registration" element = {<Registration/>}/>
           <Route path = "/login" element = {<LoginForm/>}/>
           <Route path = "/contact" element = {<Contact/>}/>
-          <Route path = "/about" element = {<About/>}/>
+          {/* <Route path = "/about" element = {<About/>}/> */}
+          <Route path = "/productdetail/:id" element = {<ProductDetail/>}/>
           </Route>
 
 
