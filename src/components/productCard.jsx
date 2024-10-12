@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Card({ items: product }) {
   return (<>
     <div className="col-md-4 mb-3">
-    <Link to ={`productDetail/${product.id}`}>
+    {/* <Link to ={`productdetail/${product.id}`}> */}
       <div className="card h-70 text-center p-0 bg-warning">
         <img
           src={product.image}
@@ -22,7 +22,7 @@ function Card({ items: product }) {
           </Link>
         </div>
       </div>
-    </Link>
+    {/* </Link> */}
     </div>
     </>
   );
