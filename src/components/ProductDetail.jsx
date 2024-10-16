@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import { useParams } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext"; // Import the CartContext
 
 const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(false);
+  const { addToCart } = useContext(CartContext); 
 
   useEffect(() => {
-    console.log("Priduct ID form url", id);
-    
+    // console.log("Priduct ID form url", id); display on terminal the product
+
     const getProduct = async () => {
       setLoading(true);
       try {
@@ -48,9 +51,14 @@ const ProductDetail = () => {
                   <strong>${product.price}</strong>
                 </p>
                 <p className="card-text">
-                  <small className="text-muted">Category: {product.category}</small>
+                  <small className="text-muted">
+                    Category: {product.category}
+                  </small>
                 </p>
-                <button className="btn btn-outline-dark ms-1">
+                <button
+                  className="btn btn-outline-dark ms-1"
+                  onClick={() => addToCart ( product) }
+                >
                   <i className="fa fa-sign-in me-1"></i> Add to Cart
                 </button>
               </div>

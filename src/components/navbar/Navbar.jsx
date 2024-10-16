@@ -41,9 +41,10 @@ function Navbar() {
               <Link to = {`/login`} className="btn btn-outline-dark ms-1">
                 <i className="fa fa-sign-in me-1"></i> Login
               </Link>
-              <a href="" className="btn btn-outline-dark ms-1">
+              
+              <Link to={"/cart"} className="btn btn-outline-dark ms-1">
                 <i className="fa fa-cart-plus me-1"></i> Cart (0)
-              </a>
+              </Link>
             </div>
           </div>
         </div>

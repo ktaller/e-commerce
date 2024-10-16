@@ -46,8 +46,8 @@ import { Link } from "react-router-dom";
           <input
             type="text"
             id="username"
-            value={username}
-            onChange={(e) => setRegistrationDetails({... registrationDetails, username:e.target.value})}
+            value={registrationDetails.username}
+            onChange={(e) => setRegistrationDetails({... registrationDetails, username:(e.target.value)})}
             required
           />
         </div>
@@ -57,13 +57,13 @@ import { Link } from "react-router-dom";
           <input
             type="password"
             id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={registrationDetails.password}
+            onChange={(e) => setPassword({...registrationDetails, password:(e.target.value)})}
             required
           />
         </div>
 
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {erra && <p style={{ color: "red" }}>{erra}</p>}
 
         <button type="submit" className="btn">
           Register

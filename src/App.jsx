@@ -9,24 +9,22 @@ import LoginForm from "./components/LoginForm";
 import Contact from "./pages/About";
 import Layout from "./components/Layout";
 import ProductDetail from "./components/ProductDetail";
-
+import Cart from "./components/Cart";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Layout/>}>
-          <Route index path = "/" element ={<Home/>}/>
-          <Route path = "/products" element = {<Products/>}/>
-          <Route path = "/registration" element = {<Registration/>}/>
-          <Route path = "/login" element = {<LoginForm/>}/>
-          <Route path = "/contact" element = {<Contact/>}/>
-          {/* <Route path = "/about" element = {<About/>}/> */}
-          <Route path = "/productdetail/:id" element = {<ProductDetail/>}/>
+          <Route path="/" element={<Layout />}>
+            <Route index path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/registration" element={<Registration />} />
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/productdetail/:id" element={<ProductDetail />} />
           </Route>
-
-
         </Routes>
       </BrowserRouter>
     </>
