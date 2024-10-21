@@ -37,31 +37,31 @@ const Products = () => {
       <>
         <div className="buttons d-flex justify-content-center mb-5 pb-5">
           <button
-            className="btn btn-outline-dark me-2 bg-warning"
+            className="btn btn-outline-dark me-2"
             onClick={() => setFilter(data)}
           >
             All
           </button>
           <button
-            className="btn btn-outline-dark me-2 bg-warning"
+            className="btn btn-outline-dark me-2"
             onClick={() => FilterProducts("men's clothing")}
           >
             Men's Category
           </button>
           <button
-            className="btn btn-outline-dark me-2 bg-warning"
+            className="btn btn-outline-dark me-2"
             onClick={() => FilterProducts("women's clothing")}
           >
             Women's Clothing
           </button>
           <button
-            className="btn btn-outline-dark me-2 bg-warning"
+            className="btn btn-outline-dark me-2"
             onClick={() => FilterProducts("jewelery")}
           >
             Jewelery
           </button>
           <button
-            className="btn btn-outline-dark me-2 bg-warning"
+            className="btn btn-outline-dark me-2"
             onClick={() => FilterProducts("electronics")}
           >
             Electronics
@@ -80,9 +80,9 @@ const Products = () => {
     <div>
       <div className="container my-4 py-4">
         <div className="row">
-          <div className="col-12 mb-5">
-            <h1 className="display-6 fw-bolder text-center">New products.</h1>
-          </div>
+          {/* <div className="col-12 mb-5"> */}
+            {/* <h1 className="display-6 fw-bolder text-center">New products.</h1> */}
+          {/* </div> */}
         </div>
         <div className="row justify-content-center">
           {loading ? <Loading /> : <ShowProducts />}
