@@ -1,19 +1,18 @@
 import React from "react";
-// import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Products from "./components/products/Products";
 import Registration from "./components/Registration";
 import LoginForm from "./components/LoginForm";
-// import About from "./pages/About";
 import Contact from "./pages/About";
 import Layout from "./components/Layout";
 import ProductDetail from "./components/ProductDetail";
 import Cart from "./components/Cart";
+import { LoginProvider } from "./context/LoginContext"; // Import LoginProvider
 
 function App() {
   return (
-    <>
+    <LoginProvider> {/* Wrap the application with LoginProvider */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -27,7 +26,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </>
+    </LoginProvider>
   );
 }
 

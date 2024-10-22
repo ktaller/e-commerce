@@ -1,11 +1,10 @@
-// Cart.js
 import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
-import useLogin from "../hooks/useLogin"; // Import useLogin to check login status
+import { LoginContext } from '../context/LoginContext';
 
 const Cart = () => {
   const { cartItems, removeFromCart, increaseQuantity, decreaseQuantity, notification } = useContext(CartContext);
-  const { isLoggedIn } = useLogin(); // Get the login status
+  const { isLoggedIn } = useContext(LoginContext); 
 
   if (!isLoggedIn) {
     return (
@@ -74,4 +73,3 @@ const Cart = () => {
 };
 
 export default Cart;
- 
