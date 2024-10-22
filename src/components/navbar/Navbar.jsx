@@ -43,7 +43,7 @@ function Navbar() {
               </Link>
               
               <Link to={"/cart"} className="btn btn-outline-dark ms-1">
-                <i className="fa fa-cart-plus me-1"></i> Cart (0)
+                <i className="fa fa-cart-plus me-1"></i> Cart
               </Link>
             </div>
           </div>

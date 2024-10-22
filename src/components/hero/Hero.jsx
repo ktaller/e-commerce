@@ -47,7 +47,7 @@ function Hero() {
             </Carousel.Item>
             <Carousel.Item>
               <img
-                src="/assets/shoe-bla.png" // Change to your image path
+                src="/assets/shoe-bla.png" 
                 className="d-block w-100"
                 alt="Image 3"
                 style={{
@@ -60,7 +60,7 @@ function Hero() {
             </Carousel.Item>
             <Carousel.Item>
               <img
-                src="/assets/converse-3.png" // Change to your image path
+                src="/assets/converse-3.png" 
                 className="d-block w-100"
                 alt="Image 3"
                 style={{
@@ -73,7 +73,7 @@ function Hero() {
             </Carousel.Item>
             <Carousel.Item>
               <img
-                src="/assets/shoe-311826_1280.png" // Change to your image path
+                src="/assets/shoe-311826_1280.png" 
                 className="d-block w-100"
                 alt="Image 3"
                 style={{

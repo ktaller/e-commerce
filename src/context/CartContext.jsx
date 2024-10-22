@@ -5,7 +5,7 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
-  const [notification, setNotification] = useState(null); // State for notification
+  const [notification, setNotification] = useState(null); 
 
   const addToCart = (item) => {
     const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
@@ -16,7 +16,7 @@ export const CartProvider = ({ children }) => {
     } else {
       setCartItems([...cartItems, { ...item, quantity: 1 }]);
     }
-    showNotification(`${item.title} has been added to the cart`); // Show notification
+    showNotification(`${item.title} added to the cart successfully`); // notification
   };
 
   const removeFromCart = (id) => {
