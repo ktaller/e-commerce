@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Card from "../productCard";
+import Loader from "../Loader";
 
 const Products = () => {
   const [data, setData] = useState([]);
@@ -24,9 +25,6 @@ const Products = () => {
     getProducts();
   }, []);
 
-  const Loading = () => {
-    return <>Loading...</>;
-  };
   const FilterProducts = (cat) => {
     const updatedList = data.filter((x) => x.category === cat);
     setFilter(updatedList);
@@ -85,7 +83,7 @@ const Products = () => {
           {/* </div> */}
         </div>
         <div className="row justify-content-center">
-          {loading ? <Loading /> : <ShowProducts />}
+          {loading ? <Loader /> : <ShowProducts />}
         </div>
       </div>
     </div>

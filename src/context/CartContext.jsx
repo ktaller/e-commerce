@@ -1,37 +1,52 @@
-import React, { createContext, useState} from 'react';
+// CartContext.js
+import React, { createContext, useState } from 'react';
 
-// Create CartContext
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  // Retrieve cart items from localStorage when the app initializes
-  const [cartItems, setCartItems] = useState(() => {
-    const storedCart = localStorage.getItem('cartItems');
-    return storedCart ? JSON.parse(storedCart) : [];
-  });
+  const [cartItems, setCartItems] = useState([]);
+  const [notification, setNotification] = useState(null); // State for notification
 
-  // adding items to e cart
-  const addToCart = (product) => {
-    const updatedCart = [...cartItems, product];
-    setCartItems(updatedCart);
-
-    // Save the updated cart to localStorage
-    localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+  const addToCart = (item) => {
+    const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
+    if (existingItem) {
+      setCartItems(cartItems.map(cartItem =>
+        cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+      ));
+    } else {
+      setCartItems([...cartItems, { ...item, quantity: 1 }]);
+    }
+    showNotification(`${item.title} has been added to the cart`); // Show notification
   };
 
-  // Function to remove items from the cart (optional)
-  const removeFromCart = (productId) => {
-    const updatedCart = cartItems.filter((item) => item.id !== productId);
-    setCartItems(updatedCart);
-    
-
-    // Update localStorage after removing an item
-    localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+  const removeFromCart = (id) => {
+    setCartItems(cartItems.filter(cartItem => cartItem.id !== id));
   };
 
-  // Return the context provider with the cart values
+  const increaseQuantity = (id) => {
+    setCartItems(cartItems.map(cartItem =>
+      cartItem.id === id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+    ));
+  };
+
+  const decreaseQuantity = (id) => {
+    setCartItems(cartItems.map(cartItem =>
+      cartItem.id === id && cartItem.quantity > 1
+        ? { ...cartItem, quantity: cartItem.quantity - 1 }
+        : cartItem
+    ));
+  };
+
+  // Function to show notification
+  const showNotification = (message) => {
+    setNotification(message);
+    setTimeout(() => {
+      setNotification(null); // Clear notification after 3 seconds
+    }, 3000);
+  };
+
   return (
-    <CartContext.Provider value={{ cartItems, setCartItems,addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, increaseQuantity, decreaseQuantity, notification }}>
       {children}
     </CartContext.Provider>
   );

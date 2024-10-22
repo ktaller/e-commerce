@@ -1,32 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import '../components/Login.css'
+import '../components/Login.css';
+import useLogin from "../hooks/useLogin";
 
-const Login = ({ setIsRegistered }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Retrieve stored username and password
-    const storedUsername = localStorage.getItem("username");
-    const storedPassword = localStorage.getItem("password");
-
-    // Simple validation
-    if (username === "" || password === "") {
-      setError("Username and password are required.");
-    } else if (username !== storedUsername || password !== storedPassword) {
-      setError("Invalid username or password.");
-    } else {
-      setError("");
-      alert("Login successful!");
-      // Reset form fields
-      setUsername("");
-      setPassword("");
-    }
-  };
+const Login = () => {
+  // Destructure values from the useLogin hook
+  const { username, setUsername, password, setPassword, error, handleSubmit } = useLogin();
 
   return (
     <div className="login-container">
@@ -60,7 +39,7 @@ const Login = ({ setIsRegistered }) => {
           Login
         </button>
         <p>
-          Don't have an account? <Link to = "/registration" >click here </Link> to register
+          Don't have an account? <Link to="/registration">Click here</Link> to register.
         </p>
       </form>
     </div>

@@ -1,9 +1,11 @@
+// useLogin.js
 import { useState } from 'react';
 
 function useLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Add login status
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,11 +21,16 @@ function useLogin() {
       setError("Invalid username or password.");
     } else {
       setError("");
+      setIsLoggedIn(true); // Set login status to true
       alert("Login successful!");
       // Reset form fields
       setUsername("");
       setPassword("");
     }
+  };
+
+  const logout = () => {
+    setIsLoggedIn(false);
   };
 
   // Return the state values and functions that the component needs
@@ -33,7 +40,9 @@ function useLogin() {
     password,
     setPassword,
     error,
-    handleSubmit
+    handleSubmit,
+    isLoggedIn,
+    logout, // Add logout function
   };
 }
 
