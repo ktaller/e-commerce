@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-warning py-3 shadow-sm">
+      <nav className="navbar navbar-expand-lg navbar-light py-3 shadow-sm"style={{backgroundColor:"#d8d4d4"}}>
         <div className="container">
           <Link className="navbar-brand fw-bolder fs-4" to="/">
             stAr-SHOP
@@ -38,10 +38,10 @@ function Navbar() {
               </li>
             </ul>
             <div className="buttons">
-              <Link to = {`/login`} className="btn btn-outline-dark ms-1">
+              <Link to={`/login`} className="btn btn-outline-dark ms-1">
                 <i className="fa fa-sign-in me-1"></i> Login
               </Link>
-              
+
               <Link to={"/cart"} className="btn btn-outline-dark ms-1">
                 <i className="fa fa-cart-plus me-1"></i> Cart
               </Link>

@@ -10,7 +10,7 @@ function Hero() {
           className="card text- border-0"
           style={{
             height: "100vh",
-            backgroundColor:"#d8d4d4"
+            backgroundColor:"grey"
           }}
         >
           <div className="card-img-overlay d-flex flex-row justify-content-end text-end">
